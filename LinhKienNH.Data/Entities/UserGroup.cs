@@ -8,5 +8,8 @@ namespace LinhKienNH.Data.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public List<UserRole> UserRoles { get; set; }
+
+        public List<User> Users { get; set; }
     }
 }

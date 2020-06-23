@@ -16,5 +16,6 @@ namespace LinhKienNH.Data.EF.Entities
         public Status Status { get; set; }
 
         public List<ProductInCategory> ProductInCategories { get; set; }
+
     }
 }

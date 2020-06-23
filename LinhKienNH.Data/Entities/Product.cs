@@ -28,5 +28,7 @@ namespace LinhKienNH.Data.EF.Entities
         public int ViewCount { get; set; }
 
         public List<ProductInCategory> ProductInCategories { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
+        public Brand Brands { get; set; }
     }
 }

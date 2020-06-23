@@ -1,4 +1,4 @@
-﻿using LinhKienNH.Data.EF.Entities;
+﻿using LinhKienNH.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -7,15 +7,14 @@ using System.Text;
 
 namespace LinhKienNH.Data.Configurations
 {
-    public class CategoryConfiguration : IEntityTypeConfiguration<Category>
+    public class RoleConfiguration : IEntityTypeConfiguration<Role>
     {
-        public void Configure(EntityTypeBuilder<Category> builder)
+        public void Configure(EntityTypeBuilder<Role> builder)
         {
-            builder.ToTable("Categories");
+            builder.ToTable("Roles");
             builder.HasKey(x=>x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
-            builder.Property(x => x.Name).IsRequired();
-            
+
         }
     }
 }

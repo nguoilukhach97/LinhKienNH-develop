@@ -13,12 +13,14 @@ namespace LinhKienNH.Data.Configurations
         {
             builder.ToTable("Products");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.Name).IsRequired();
             builder.Property(x => x.Price).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.PromotionPrice).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.PromotionPrice).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.UserCreated).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.Quantity).IsRequired().HasDefaultValue(0);
+
         }
     }
 }
