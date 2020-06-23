@@ -15,7 +15,9 @@ namespace LinhKienNH.Data.Configurations
             builder.ToTable("Users");
             builder.HasKey(p=>p.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
-            builder.Property(p => new { p.UserName, p.PassWord, p.GroupId }).IsRequired();
+            builder.Property(p => p.UserName).IsRequired();
+            builder.Property(p => p.PassWord).IsRequired();
+            builder.Property(p => p.GroupId).IsRequired();
             builder.HasOne(p => p.UserGroups).WithMany(x => x.Users).HasForeignKey(p => p.GroupId);
         }
     }

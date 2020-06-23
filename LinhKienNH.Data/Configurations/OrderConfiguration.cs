@@ -15,7 +15,8 @@ namespace LinhKienNH.Data.Configurations
             builder.ToTable("Orders");
             builder.HasKey(x=>x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
-            builder.Property(x => new { x.OrderDate, x.CustomerId }).IsRequired();
+            builder.Property(x=>x.CustomerId).IsRequired();
+            builder.Property(x=>x.OrderDate).IsRequired();
             builder.HasOne(p => p.Customers).WithMany(x => x.Orders).HasForeignKey(p=>p.CustomerId);
             
         }
