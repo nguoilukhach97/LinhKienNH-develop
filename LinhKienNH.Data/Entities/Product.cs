@@ -2,7 +2,6 @@
 using LinhKienNH.Data.Enum;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace LinhKienNH.Data.EF.Entities
 {
@@ -12,7 +11,7 @@ namespace LinhKienNH.Data.EF.Entities
         public string Name { get; set; }
         public int CatalogId { get; set; }
         public int BrandId { get; set; }
-        public int Description { get; set; }
+        public string Description { get; set; }
         public string Details { get; set; }
         public decimal Price { get; set; }
         public decimal PromotionPrice { get; set; }
@@ -24,9 +23,13 @@ namespace LinhKienNH.Data.EF.Entities
         public int UserCreated { get; set; }
         public DateTime DateModified { get; set; }
         public int UserModified { get; set; }
-        public Status Status { get; set; }
+        public bool Status { get; set; }
         public int ViewCount { get; set; }
 
         public List<ProductInCategory> ProductInCategories { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
+        public Brand Brands { get; set; }
+
+        public List<Comment> Comments { get; set; }
     }
 }

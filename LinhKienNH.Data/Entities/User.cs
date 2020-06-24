@@ -16,6 +16,8 @@ namespace LinhKienNH.Data.Entities
         public string PhoneNumber{get;set;}
         public string Address {get;set;}
         public string Image {get;set;}
-        public Status Status {get;set;}
+        public bool Status {get;set;}
+
+        public UserGroup UserGroups { get; set; }
     }
 }
