@@ -14,7 +14,7 @@ namespace LinhKienNH.Data.Entities
         public string Cancel { get; set; }
         public int UserCreated { get; set; }
         public int UserCancel { get; set; }
-        public Status Status { get; set; }
+        public int Status { get; set; }
 
         public List<OrderItem> OrderItems { get; set; }
         public Customer Customers { get; set; }

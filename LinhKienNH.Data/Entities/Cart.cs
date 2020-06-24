@@ -11,7 +11,7 @@ namespace LinhKienNH.Data.Entities
         public int IdCustomer { get; set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
-        public Status Status { get; set; }
+        public bool Status { get; set; }
 
         public Customer Customers { get; set; }
     }

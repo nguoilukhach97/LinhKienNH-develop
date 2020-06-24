@@ -16,7 +16,10 @@ namespace LinhKienNH.Data.Configurations
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.IdCustomer).IsRequired().HasDefaultValue(0);
             builder.Property(p => p.ProductId).IsRequired().HasDefaultValue(0);
+            builder.Property(x => x.Quantity).HasDefaultValueSql("0");
             builder.HasOne(x => x.Customers).WithMany(x => x.Carts).HasForeignKey(p => p.IdCustomer);
+
+            builder.Property(x => x.Status).HasDefaultValueSql("1");
         }
     }
 }

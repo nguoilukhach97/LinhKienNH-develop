@@ -14,7 +14,9 @@ namespace LinhKienNH.Data.Configurations
             builder.ToTable("Categories");
             builder.HasKey(x=>x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
-            builder.Property(x => x.Name).IsRequired();
+            builder.Property(x => x.Name).IsRequired().HasMaxLength(250);
+            builder.Property(x => x.Image).IsRequired().HasMaxLength(250).IsUnicode(false);
+            builder.Property(x => x.Status).HasDefaultValueSql("1");
             
         }
     }

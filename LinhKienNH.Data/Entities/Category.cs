@@ -13,7 +13,7 @@ namespace LinhKienNH.Data.EF.Entities
         public string Image { get; set; }
         public int ParentId { get; set; }
         public int SortOder { get; set; }
-        public Status Status { get; set; }
+        public bool Status { get; set; }
 
         public List<ProductInCategory> ProductInCategories { get; set; }
 

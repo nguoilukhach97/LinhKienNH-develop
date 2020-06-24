@@ -14,12 +14,18 @@ namespace LinhKienNH.Data.Configurations
             builder.ToTable("Products");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
-            builder.Property(x => x.Name).IsRequired();
-            builder.Property(x => x.Price).IsRequired().HasDefaultValue(0);
-            builder.Property(x => x.PromotionPrice).IsRequired().HasDefaultValue(0);
-            builder.Property(x => x.PromotionPrice).IsRequired().HasDefaultValue(0);
-            builder.Property(x => x.UserCreated).IsRequired().HasDefaultValue(0);
-            builder.Property(x => x.Quantity).IsRequired().HasDefaultValue(0);
+                     
+
+            builder.Property(x => x.Name).IsRequired().HasMaxLength(250);
+            builder.Property(x => x.Description).HasColumnType("ntext");
+            builder.Property(x => x.Details).HasColumnType("ntext");
+            builder.Property(x => x.Price).IsRequired().HasDefaultValueSql("0");
+            builder.Property(x => x.PromotionPrice).HasDefaultValueSql("0");
+            builder.Property(x => x.Quantity).IsRequired().HasDefaultValueSql("0");
+            builder.Property(x => x.Warranty).HasDefaultValueSql("0");
+            builder.Property(x => x.DateCreated).HasColumnType("datetime");
+            builder.Property(x => x.DateModified).HasColumnType("datetime");
+
 
         }
     }
