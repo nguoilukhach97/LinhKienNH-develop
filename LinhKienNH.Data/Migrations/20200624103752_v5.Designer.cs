@@ -4,14 +4,16 @@ using LinhKienNH.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LinhKienNH.Data.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200624103752_v5")]
+    partial class v5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,9 +84,6 @@ namespace LinhKienNH.Data.Migrations
                     b.Property<string>("Details")
                         .HasColumnType("ntext");
 
-                    b.Property<int>("IdSize")
-                        .HasColumnType("int");
-
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -131,8 +130,6 @@ namespace LinhKienNH.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
-
-                    b.HasIndex("IdSize");
 
                     b.ToTable("Products");
                 });
@@ -370,27 +367,6 @@ namespace LinhKienNH.Data.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("LinhKienNH.Data.Entities.Size", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SizeName")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Size");
-                });
-
             modelBuilder.Entity("LinhKienNH.Data.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -484,12 +460,6 @@ namespace LinhKienNH.Data.Migrations
                     b.HasOne("LinhKienNH.Data.Entities.Brand", "Brands")
                         .WithMany("Products")
                         .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LinhKienNH.Data.Entities.Size", "Sizes")
-                        .WithMany("Products")
-                        .HasForeignKey("IdSize")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

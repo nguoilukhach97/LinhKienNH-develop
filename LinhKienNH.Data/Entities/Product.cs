@@ -11,7 +11,9 @@ namespace LinhKienNH.Data.EF.Entities
         public string Name { get; set; }
         public int CatalogId { get; set; }
         public int BrandId { get; set; }
+        public int IdSize { get; set; }
         public string Description { get; set; }
+        
         public string Details { get; set; }
         public decimal Price { get; set; }
         public decimal PromotionPrice { get; set; }
@@ -30,6 +32,7 @@ namespace LinhKienNH.Data.EF.Entities
         public List<OrderItem> OrderItems { get; set; }
         public Brand Brands { get; set; }
 
+        public Size Sizes { get; set; }
         public List<Comment> Comments { get; set; }
     }
 }
