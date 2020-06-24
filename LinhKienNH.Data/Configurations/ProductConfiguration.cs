@@ -26,7 +26,7 @@ namespace LinhKienNH.Data.Configurations
             builder.Property(x => x.DateCreated).HasColumnType("datetime");
             builder.Property(x => x.DateModified).HasColumnType("datetime");
 
-
+            builder.HasOne(x => x.Sizes).WithMany(x => x.Products).HasForeignKey(x => x.IdSize);
         }
     }
 }
