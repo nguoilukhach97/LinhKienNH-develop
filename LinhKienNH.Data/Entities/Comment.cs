@@ -1,4 +1,5 @@
-﻿using LinhKienNH.Data.Enum;
+﻿using LinhKienNH.Data.EF.Entities;
+using LinhKienNH.Data.Enum;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,7 @@ namespace LinhKienNH.Data.Entities
         public int Rating { get; set; }
         public string ContentComment { get; set; }
         public DateTime DateCreated { get; set; }
-        public Status Status { get; set; }
+        public bool Status { get; set; }
+        public Product Products { get; set; }
     }
 }

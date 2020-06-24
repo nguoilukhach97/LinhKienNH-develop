@@ -5,11 +5,11 @@ using System.Text;
 
 namespace LinhKienNH.Data.Entities
 {
-    public class Brand
+    public class Size
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Image { get; set; }
+        public int SizeName { get; set; }
+        public string Description { get; set; }
         public bool Status { get; set; }
 
         public List<Product> Products { get; set; }
