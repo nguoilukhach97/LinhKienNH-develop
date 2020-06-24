@@ -25,7 +25,7 @@ namespace LinhKienNH.Data.Configurations
             builder.Property(x => x.PhoneNumber).HasMaxLength(12).IsUnicode(false);
             builder.Property(x => x.Address).HasMaxLength(250);
             builder.Property(x => x.Image).HasMaxLength(250);
-            builder.Property(x => x.Status).HasDefaultValue("1");
+            builder.Property(x => x.Status).HasDefaultValue("true");
 
         }
     }
