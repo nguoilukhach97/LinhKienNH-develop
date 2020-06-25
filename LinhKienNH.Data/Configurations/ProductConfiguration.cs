@@ -24,7 +24,8 @@ namespace LinhKienNH.Data.Configurations
             builder.Property(x => x.Quantity).IsRequired().HasDefaultValueSql("0");
             builder.Property(x => x.Warranty).HasDefaultValueSql("0");
             builder.Property(x => x.DateCreated).HasColumnType("datetime");
-            builder.Property(x => x.DateModified).HasColumnType("datetime");
+            builder.Property(x => x.DateModified).HasColumnType("datetime").IsRequired(false);
+            builder.Property(x => x.UserModified).IsRequired(false);
 
             builder.HasOne(x => x.Sizes).WithMany(x => x.Products).HasForeignKey(x => x.IdSize);
         }

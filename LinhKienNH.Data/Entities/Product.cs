@@ -7,7 +7,7 @@ namespace LinhKienNH.Data.EF.Entities
 {
     public class Product
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public int CatalogId { get; set; }
         public int BrandId { get; set; }
@@ -23,8 +23,8 @@ namespace LinhKienNH.Data.EF.Entities
         public int Warranty { get; set; }
         public DateTime DateCreated { get; set; }
         public int UserCreated { get; set; }
-        public DateTime DateModified { get; set; }
-        public int UserModified { get; set; }
+        public DateTime? DateModified { get; set; }
+        public int? UserModified { get; set; }
         public bool Status { get; set; }
         public int ViewCount { get; set; }
 

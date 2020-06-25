@@ -14,5 +14,7 @@ namespace LinhKienNH.Data.Entities
         public bool Status { get; set; }
 
         public Customer Customers { get; set; }
+
+        
     }
 }

@@ -1,6 +1,9 @@
 ﻿using LinhKienNH.Data.Configurations;
 using LinhKienNH.Data.EF.Entities;
 using LinhKienNH.Data.Entities;
+using LinhKienNH.Data.Extensions;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +11,7 @@ using System.Text;
 
 namespace LinhKienNH.Data.EF
 {
-    public class ShopDbContext : DbContext
+    public class ShopDbContext : IdentityDbContext<AppUser,AppRole,Guid>
     {
         public ShopDbContext( DbContextOptions options) : base(options)
         {
@@ -26,13 +29,23 @@ namespace LinhKienNH.Data.EF
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new OrderItemConfigurationn());
-            modelBuilder.ApplyConfiguration(new RoleConfiguration()) ;
-            modelBuilder.ApplyConfiguration(new UserConfiguration()) ;
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new UserGroupConfiguration());
             modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
 
-            // dataseeding
+            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
+            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
 
+            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClams");
+            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId,x.RoleId });
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x=>x.UserId);
+
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClams");
+            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x=>x.UserId);
+
+            // dataseeding
+            ModelBuilderExtension.Seed(modelBuilder);
 
         }
         public DbSet<Product> Products { get; set; }
