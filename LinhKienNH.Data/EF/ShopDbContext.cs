@@ -16,6 +16,7 @@ namespace LinhKienNH.Data.EF
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //configuration fluent api
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
@@ -29,6 +30,8 @@ namespace LinhKienNH.Data.EF
             modelBuilder.ApplyConfiguration(new UserConfiguration()) ;
             modelBuilder.ApplyConfiguration(new UserGroupConfiguration());
             modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
+
+            // dataseeding
 
 
         }
