@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LinhKien.Utilities\LinhKien.Utilities.csproj" />
+    <ProjectReference Include="..\LinhKienNH.Data\LinhKienNH.Data.csproj" />
+  </ItemGroup>
+
 </Project>

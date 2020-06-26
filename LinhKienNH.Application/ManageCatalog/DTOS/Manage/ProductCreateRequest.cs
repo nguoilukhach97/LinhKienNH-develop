@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LinhKienNH.Application.ManageCatalog.DTOS
+namespace LinhKienNH.Application.ManageCatalog.DTOS.Manage
 {
-    public class ProductViewModel
+    public class ProductCreateRequest
     {
-        public int? Id { get; set; }
+
         public string Name { get; set; }
         public int CatalogId { get; set; }
         public int BrandId { get; set; }
@@ -22,10 +22,7 @@ namespace LinhKienNH.Application.ManageCatalog.DTOS
         public int Warranty { get; set; }
         public DateTime DateCreated { get; set; }
         public int UserCreated { get; set; }
-        public DateTime? DateModified { get; set; }
-        public int? UserModified { get; set; }
         public bool Status { get; set; }
         public int ViewCount { get; set; }
-       
     }
 }

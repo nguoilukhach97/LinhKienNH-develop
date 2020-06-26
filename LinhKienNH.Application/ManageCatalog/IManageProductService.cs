@@ -1,18 +1,21 @@
-﻿using LinhKienNH.Application.ManageCatalog.DTOS;
+﻿using LinhKienNH.Application.DTO;
+using LinhKienNH.Application.ManageCatalog.DTOS;
+using LinhKienNH.Application.ManageCatalog.DTOS.Manage;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace LinhKienNH.Application.ManageCatalog
 {
     public interface IManageProductService
     {
-        int Create(ProductCreateRequest productCreateRequest);
-        int Update(ProductEditRequest productEditRequest);
-        int Delete(int productId);
-
-        List<ProductViewModel> GetAll();
-        List<ProductViewModel> GetAllPaging(string keyWork, int pageIndex, int pageSize);
-        List<produc>
+        Task<int> Create(ProductCreateRequest productCreateRequest);
+        Task<int> Update(ProductEditRequest productEditRequest);
+        Task<int> Delete(int productId);
+        Task AddViewCount(int idProduct);
+        Task<List<ProductViewModel>> GetAll();
+        Task<PagedViewModel<ProductViewModel>> GetAllPaging(GetProductPagingRequest paginRequest);
+        
     }
 }

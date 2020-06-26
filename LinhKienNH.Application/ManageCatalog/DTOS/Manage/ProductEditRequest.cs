@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LinhKienNH.Application.ManageCatalog.DTOS
+namespace LinhKienNH.Application.ManageCatalog.DTOS.Manage
 {
-    public class ProductViewModel
+    public class ProductEditRequest
     {
         public int? Id { get; set; }
         public string Name { get; set; }
@@ -20,12 +20,9 @@ namespace LinhKienNH.Application.ManageCatalog.DTOS
         public string ImageThumb { get; set; }
         public int Quantity { get; set; }
         public int Warranty { get; set; }
-        public DateTime DateCreated { get; set; }
-        public int UserCreated { get; set; }
-        public DateTime? DateModified { get; set; }
-        public int? UserModified { get; set; }
+        
+        
         public bool Status { get; set; }
-        public int ViewCount { get; set; }
-       
+        
     }
 }
